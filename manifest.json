@@ -2,7 +2,13 @@
     "name": "MyFitnessPal extend",
     "version": "1.0",
     "description": "To add fiber and net carbs column in the myfitness pal food diary.",
-    "permissions": ["storage"],
+    "manifest_version": 2,
+
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
     "page_action": {
         "default_icon": {
             "16": "images/get_started16.png",
@@ -15,6 +21,12 @@
         "matches": ["https://www.myfitnesspal.com/food/diary"],
         "run_at": "document_idle",
         "js": ["content.js"]
+    },{
+        "matches": ["https://www.myfitnesspal.com/food/search"],
+        "run_at":"document_idle",
+        "js":["search_food.js"]
     }],
-    "manifest_version": 2
+    "background": {
+        "scripts": ["mz-background.js"]
+    }
 }
